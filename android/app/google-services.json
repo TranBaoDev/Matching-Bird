@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "79733169452",
+    "project_id": "tinder-clone-705a4",
+    "storage_bucket": "tinder-clone-705a4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:79733169452:android:bf1baf8b286b1ff198a089",
+        "android_client_info": {
+          "package_name": "com.example.tiki"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAE1l93bIfnq15BS_DvUX6-wZTS3uqzgoo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
