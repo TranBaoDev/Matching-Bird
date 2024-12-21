@@ -1,8 +1,6 @@
 # Dating App Made with Flutter & Firebase :smile:  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)  [![Twitter Follow](https://img.shields.io/twitter/follow/MortyWentMia.svg?style=social)](https://twitter.com/MortyWentMia)
 
 
-##   you can also buy me coffee 
-> <a href="https://www.buymeacoffee.com/maleek"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=xPGLYEr&button_colour=BD5FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00"></a>
 
  <!--  ###     Sreenshots:
  --App screenshots here... 
@@ -17,7 +15,6 @@
 
  ### 👨‍💻  Author
 
- Ui developed by DamiFlutter [![Twitter Follow](https://img.shields.io/twitter/follow/MortyWentMia.svg?style=social)](https://twitter.com/MortyWentMia)
 
 # Screenshot:
 
