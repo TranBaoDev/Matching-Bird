@@ -1,4 +1,4 @@
-# Dating App Made with Flutter & Firebase :smile:  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)  [![Twitter Follow](https://img.shields.io/twitter/follow/MortyWentMia.svg?style=social)](https://twitter.com/MortyWentMia)
+# Dating App Made with Flutter & Firebase :smile:  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 
 
