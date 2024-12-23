@@ -16,7 +16,6 @@ class SwipeBloc extends Bloc<SwipeEvent, SwipeState> {
   })  : _baseUsersRepo = baseUsersRepo,
         super(SwipeLoading());
 
-  @override
   Stream<SwipeState> mapEventToState(
     SwipeEvent event,
   ) async* {

@@ -3,12 +3,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tiki/pages/tabs/likedDetailsPage.dart';
+import 'package:tiki/pages/tabs/liked_details_page.dart';
 
 class Likes extends StatelessWidget {
   const Likes({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

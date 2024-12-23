@@ -5,9 +5,9 @@ class CustomCheckbox extends StatelessWidget {
   final String text;
 
   const CustomCheckbox({
-    Key? key,
+    super.key,
     required this.text,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

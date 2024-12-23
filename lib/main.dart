@@ -8,8 +8,6 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tiki/authentications_bloc/cubits/signup_cubit.dart';
 import 'package:tiki/constatns/app_router.dart';
-import 'package:tiki/models/user.dart';
-import 'package:tiki/pages/homepage.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:tiki/pages/onboarding/onboardinng.dart';
 import 'package:tiki/pages/tabs/mainpage.dart';
@@ -18,7 +16,6 @@ import 'package:tiki/respositories/bloc/image_bloc.dart';
 import 'package:tiki/respositories/bloc/swipebloc_bloc.dart';
 import 'package:tiki/respositories/databerepository.dart';
 import 'package:tiki/respositories/mainauth.dart';
-import 'pages/onboarding/onboardinng.dart';
 import 'respositories/baseusers.dart';
 
 void main() async {
@@ -46,7 +43,7 @@ void main() async {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -124,7 +121,7 @@ Future<firebase_auth.User> getCurrentUser() async {
 }
 
 class AuthenticationWrapper extends StatelessWidget {
-  const AuthenticationWrapper({Key? key}) : super(key: key);
+  const AuthenticationWrapper({super.key});
 
   @override
   Widget build(BuildContext context) {

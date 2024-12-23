@@ -9,9 +9,9 @@ class Start extends StatefulWidget {
   final TabController tabController;
 
   const Start({
-    Key? key,
+    super.key,
     required this.tabController,
-  }) : super(key: key);
+  });
 
   @override
   State<Start> createState() => _StartState();
@@ -21,7 +21,7 @@ class _StartState extends State<Start> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 50),
+      padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

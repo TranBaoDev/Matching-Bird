@@ -1,22 +1,14 @@
 // ignore_for_file: avoid_print
 
-import 'package:antdesign_icons/antdesign_icons.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:latlng/latlng.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:shimmer/shimmer.dart';
-import 'package:tiki/constatns/colors.dart';
-import 'package:tiki/profile.dart';
 import 'package:tiki/pages/tabs/userscreen.dart';
 import 'package:tiki/providers/userdata.dart';
 import 'package:tiki/respositories/bloc/swipebloc_bloc.dart';
@@ -24,7 +16,7 @@ import 'package:tiki/widgets/usercard.dart';
 import '../models/user.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -92,6 +84,7 @@ class _HomePageState extends State<HomePage>
   User? user;
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     var userData = Provider.of<UserData>(context);
     return Scaffold(
       key: _scaffoldKey,
@@ -128,7 +121,6 @@ class _HomePageState extends State<HomePage>
                             MediaQuery.of(context).size.width / 2) {
                           print('left');
                           // tap left side
-
                         } else {
                           // tap rigth size
 

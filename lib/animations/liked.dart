@@ -6,12 +6,11 @@ class HeartAnimationWidget extends StatefulWidget {
   final Duration duration;
   final VoidCallback? onEnd;
   const HeartAnimationWidget(
-      {Key? key,
+      {super.key,
       required this.child,
       required this.isAnimation,
       required this.onEnd,
-      this.duration = const Duration(milliseconds: 150)})
-      : super(key: key);
+      this.duration = const Duration(milliseconds: 150)});
 
   @override
   _HeartAnimationWidgetState createState() => _HeartAnimationWidgetState();

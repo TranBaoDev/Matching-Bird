@@ -6,11 +6,11 @@ class UserImageSmall extends StatelessWidget {
   final double width;
 
   const UserImageSmall({
-    Key? key,
+    super.key,
     required this.url,
     this.height = 60,
     this.width = 60,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

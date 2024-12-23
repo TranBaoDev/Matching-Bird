@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Category extends StatefulWidget {
-  const Category({Key? key}) : super(key: key);
+  const Category({super.key});
 
   @override
   _CategoryState createState() => _CategoryState();
@@ -97,15 +96,6 @@ class _CategoryState extends State<Category> {
                             bottom: 115,
                             right: 40,
                             child: Container(
-                              child: Center(
-                                child: Text(
-                                  groups[index]['title'],
-                                  style: GoogleFonts.aBeeZee(
-                                      fontSize: 14,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              ),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50),
                                 gradient: LinearGradient(
@@ -118,6 +108,15 @@ class _CategoryState extends State<Category> {
                                   stops: [0.0, 0.9],
                                 ),
                               ),
+                              child: Center(
+                                child: Text(
+                                  groups[index]['title'],
+                                  style: GoogleFonts.aBeeZee(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ),
                             ),
                           ),
                           Align(
@@ -125,9 +124,6 @@ class _CategoryState extends State<Category> {
                             child: Container(
                               height: 39,
                               width: double.infinity,
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 8.0),
-                              ),
                               decoration: BoxDecoration(
                                   color: Colors.black54,
                                   boxShadow: [
@@ -137,6 +133,9 @@ class _CategoryState extends State<Category> {
                                       color: Colors.black.withOpacity(0.5),
                                     )
                                   ]),
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                              ),
                             ),
                           ),
                           Align(
@@ -181,8 +180,8 @@ class _CategoryState extends State<Category> {
 
 class Verify extends StatelessWidget {
   const Verify({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -201,6 +200,20 @@ class Verify extends StatelessWidget {
             child: Container(
               height: 50,
               width: double.infinity,
+              decoration: BoxDecoration(
+                backgroundBlendMode: BlendMode.darken,
+                borderRadius: const BorderRadius.only(
+                  bottomRight: Radius.circular(8),
+                  bottomLeft: Radius.circular(8),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      offset: Offset(0, 3),
+                      blurRadius: 10),
+                ],
+                color: Colors.black.withOpacity(0.4),
+              ),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -230,6 +243,9 @@ class Verify extends StatelessWidget {
                       Container(
                         height: 50,
                         width: 80,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(50)),
                         child: Center(
                             child: Text(
                           'Verify',
@@ -239,25 +255,8 @@ class Verify extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         )),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(50)),
                       ),
                     ]),
-              ),
-              decoration: BoxDecoration(
-                backgroundBlendMode: BlendMode.darken,
-                borderRadius: const BorderRadius.only(
-                  bottomRight: Radius.circular(8),
-                  bottomLeft: Radius.circular(8),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      offset: Offset(0, 3),
-                      blurRadius: 10),
-                ],
-                color: Colors.black.withOpacity(0.4),
               ),
             ),
           ),

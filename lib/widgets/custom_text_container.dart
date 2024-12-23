@@ -7,11 +7,10 @@ class CustomTextContainer extends StatefulWidget {
   final VoidCallback onPressed;
 
   const CustomTextContainer(
-      {Key? key,
+      {super.key,
       required this.text,
       required this.onPressed,
-      this.isSelected = false})
-      : super(key: key);
+      this.isSelected = false});
 
   @override
   State<CustomTextContainer> createState() => _CustomTextContainerState();

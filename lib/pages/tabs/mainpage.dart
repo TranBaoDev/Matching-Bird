@@ -13,7 +13,7 @@ import 'package:tiki/profile.dart';
 import 'package:tiki/providers/userdata.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  const MainPage({super.key});
 
   @override
   _MainPageState createState() => _MainPageState();

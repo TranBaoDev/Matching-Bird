@@ -9,6 +9,10 @@ class UserData extends ChangeNotifier {
   List? interests;
   var currentUser = FirebaseAuth.instance.currentUser;
 
+  UserData() {
+    _getUser(); // Call the function in the constructor
+  }
+
   Future<void> _getUser() async {
     FirebaseFirestore.instance
         .collection('users')

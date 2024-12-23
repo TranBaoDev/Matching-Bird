@@ -10,14 +10,14 @@ class Pictures extends StatelessWidget {
   final TabController tabController;
 
   const Pictures({
-    Key? key,
+    super.key,
     required this.tabController,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 50),
+      padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.max,

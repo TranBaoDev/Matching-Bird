@@ -5,9 +5,9 @@ class CustomTextHeader extends StatelessWidget {
   final String text;
 
   const CustomTextHeader({
-    Key? key,
+    super.key,
     required this.text,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

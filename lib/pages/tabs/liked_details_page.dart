@@ -17,7 +17,7 @@ class LikedDetailsPage extends StatefulWidget {
   final bool? matched;
 
   const LikedDetailsPage({
-    Key? key,
+    super.key,
     this.liedUserImageUrls,
     this.likedUserinterests,
     this.likedUserName,
@@ -25,7 +25,7 @@ class LikedDetailsPage extends StatefulWidget {
     this.likedJob,
     this.matched,
     this.likedUserage,
-  }) : super(key: key);
+  });
 
   @override
   _LikedDetailsPageState createState() => _LikedDetailsPageState();

@@ -13,7 +13,7 @@ class ChoiceButton extends StatelessWidget {
   final Color? linear1;
   final Color? linear2;
   const ChoiceButton(
-      {Key? key,
+      {super.key,
       required this.width,
       required this.height,
       required this.color,
@@ -23,8 +23,7 @@ class ChoiceButton extends StatelessWidget {
       this.linear1,
       this.linear2,
       required this.hasGradient,
-      required this.icon})
-      : super(key: key);
+      required this.icon});
 
   @override
   Widget build(BuildContext context) {

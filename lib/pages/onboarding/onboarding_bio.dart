@@ -11,9 +11,9 @@ class Bio extends StatefulWidget {
   final TabController tabController;
 
   const Bio({
-    Key? key,
+    super.key,
     required this.tabController,
-  }) : super(key: key);
+  });
 
   @override
   State<Bio> createState() => _BioState();
@@ -49,7 +49,7 @@ class _BioState extends State<Bio> {
       child: BlocBuilder<SignupCubit, SignupState>(
         builder: (context, state) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 50),
+            padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -14,11 +14,11 @@ class CustomButton extends StatelessWidget {
   final void function;
 
   const CustomButton({
-    Key? key,
+    super.key,
     required this.tabController,
     required this.text,
     this.function,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

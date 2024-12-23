@@ -14,16 +14,16 @@ class Email extends StatelessWidget {
   final TabController tabController;
 
   const Email({
-    Key? key,
+    super.key,
     required this.tabController,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SignupCubit, SignupState>(
       builder: (context, state) {
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -53,7 +53,7 @@ class Email extends StatelessWidget {
                       print(state.username);
                     },
                   ),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 25),
                   const CustomTextHeader(text: 'What\'s Your Email Address?'),
                   const SizedBox(height: 7),
                   CustomTextField(
@@ -64,7 +64,7 @@ class Email extends StatelessWidget {
                       print(state.email);
                     },
                   ),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 25),
                   const CustomTextHeader(text: 'Choose a Password'),
                   const SizedBox(height: 7),
                   CustomTextField(

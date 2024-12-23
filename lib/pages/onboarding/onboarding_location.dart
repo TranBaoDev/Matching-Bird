@@ -12,16 +12,16 @@ class Location extends StatelessWidget {
   final TabController tabController;
 
   const Location({
-    Key? key,
+    super.key,
     required this.tabController,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SignupCubit, SignupState>(
       builder: (context, state) {
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,

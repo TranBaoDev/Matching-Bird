@@ -42,7 +42,7 @@ packages:
     source: hosted
     version: "2.11.0"
   bloc:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: bloc
       sha256: "106842ad6569f0b60297619e9e0b1885c2fb9bf84812935490e6c5275777804e"
@@ -330,7 +330,7 @@ packages:
     source: hosted
     version: "1.1.1"
   flutter:
-    dependency: transitive
+    dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -367,7 +367,7 @@ packages:
     source: hosted
     version: "5.0.0"
   flutter_plugin_android_lifecycle:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_plugin_android_lifecycle
       sha256: "615a505aef59b151b46bbeef55b36ce2b6ed299d160c51d84281946f0aa0ce0e"
@@ -569,7 +569,7 @@ packages:
     source: hosted
     version: "0.2.1+1"
   intl:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: intl
       sha256: d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf

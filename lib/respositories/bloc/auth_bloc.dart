@@ -23,7 +23,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     );
   }
 
-  @override
   Stream<AuthState> mapEventToState(AuthEvent event) async* {
     if (event is AuthUserChanged) {
       yield* _mapAuthUserChangedToState(event);

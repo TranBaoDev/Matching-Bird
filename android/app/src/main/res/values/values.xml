@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- API Key: Bắt buộc -->
+    <string name="google_api_key">AIzaSyAE1l93bIfnq15BS_DvUX6-wZTS3uqzgoo</string>
+
+    <!-- Firebase App ID: Bắt buộc -->
+    <string name="google_app_id">1:79733169452:android:bf1baf8b286b1ff198a089</string>
+
+    <!-- Project ID: Bắt buộc -->
+    <string name="project_id">tinder-clone-705a4</string>
+
+    <!-- Realtime Database URL: Bắt buộc nếu bạn sử dụng Realtime Database -->
+    <string name="firebase_database_url">https://tinder-clone-705a4-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+
+    <!-- Cloud Messaging Sender ID: Bắt buộc nếu bạn sử dụng Firebase Cloud Messaging -->
+    <string name="gcm_defaultSenderId">79733169452</string>
+</resources>

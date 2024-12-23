@@ -16,7 +16,6 @@ class ImageBloc extends Bloc<ImageEvent, ImageState> {
   })  : _databaseRepository = databaseRepository,
         super(ImagesLoading());
 
-  @override
   Stream<ImageState> mapEventToState(ImageEvent event) async* {
     if (event is ImagesLoaded) {
       yield* _mapLoadImagesToState();

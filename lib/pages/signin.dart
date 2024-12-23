@@ -1,21 +1,14 @@
 import 'package:antdesign_icons/antdesign_icons.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
-import 'package:tiki/authentications_bloc/cubits/signup_cubit.dart';
 import 'package:tiki/instances/login_status.dart';
-import 'package:tiki/pages/homepage.dart';
 import 'package:tiki/pages/tabs/mainpage.dart';
 import 'package:tiki/respositories/mainauth.dart';
-import 'package:tiki/widgets/custom_textfield.dart';
-import 'package:tiki/widgets/header.dart';
 
 class SigninPage extends StatefulWidget {
-  const SigninPage({Key? key}) : super(key: key);
+  const SigninPage({super.key});
 
   @override
   _SigninPageState createState() => _SigninPageState();
@@ -188,11 +181,12 @@ class _SigninPageState extends State<SigninPage> {
                           .then((value) {
                         Instances.saveLoginStatus('loggedIn');
                         Navigator.pushReplacement(
-                            context,
-                            CupertinoPageRoute(
-                              builder: (context) => const MainPage(),
-                            ));
-                                            });
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => const MainPage(),
+                          ),
+                        );
+                      });
                     } on FirebaseAuthException catch (e) {
                       if (e.code == 'weak-password') {
                         error = 'The password provided is too weak.';

@@ -18,8 +18,8 @@ class DatabaseRepository extends BaseDatabaseRepository {
   }
 
   @override
-  Future<void> updateUserPictures(String imageName) async {
-    String getdownloadUrl = await StorageRepository().getImageUrl(imageName);
+  Future<void> updateUserPictures(String imagePath) async {
+    String getdownloadUrl = await StorageRepository().getImageUrl(imagePath);
     return _firestore
         .collection('users')
         .doc(firebaseAuth.currentUser!.email)

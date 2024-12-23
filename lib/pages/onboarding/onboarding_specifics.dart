@@ -11,9 +11,9 @@ class Demo extends StatefulWidget {
   final TabController tabController;
 
   const Demo({
-    Key? key,
+    super.key,
     required this.tabController,
-  }) : super(key: key);
+  });
 
   @override
   State<Demo> createState() => _DemoState();
@@ -30,7 +30,7 @@ class _DemoState extends State<Demo> {
     return BlocBuilder<SignupCubit, SignupState>(
       builder: (context, state) {
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,

@@ -2,16 +2,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:step_progress_indicator/step_progress_indicator.dart';
-import 'package:tiki/constatns/colors.dart';
 
 class Messaging extends StatefulWidget {
   final String? username;
   final String? photoUrl;
   final String? cureentUserphtoUrl;
   const Messaging(
-      {Key? key, this.username, this.photoUrl, this.cureentUserphtoUrl})
-      : super(key: key);
+      {super.key, this.username, this.photoUrl, this.cureentUserphtoUrl});
 
   @override
   _MessagingState createState() => _MessagingState();
@@ -230,8 +227,8 @@ class _MessagingState extends State<Messaging> {
 
 class ChatContainer extends StatelessWidget {
   const ChatContainer({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -299,13 +296,13 @@ class ChatContainer extends StatelessWidget {
               ),
               FloatingActionButton(
                 onPressed: () {},
+                backgroundColor: Theme.of(context).primaryColorLight,
+                elevation: 0,
                 child: Icon(
                   Icons.send,
                   color: Colors.white,
                   size: 18,
                 ),
-                backgroundColor: Theme.of(context).primaryColorLight,
-                elevation: 0,
               ),
             ],
           ),

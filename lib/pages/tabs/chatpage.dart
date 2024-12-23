@@ -10,7 +10,7 @@ import 'package:timeago/timeago.dart' as timeago;
 import 'package:tiki/widgets/small_image.dart';
 
 class MatchesScreen extends StatefulWidget {
-  const MatchesScreen({Key? key}) : super(key: key);
+  const MatchesScreen({super.key});
 
   @override
   State<MatchesScreen> createState() => _MatchesScreenState();
@@ -247,7 +247,7 @@ class _MatchesScreenState extends State<MatchesScreen>
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -298,15 +298,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             ),
           ];
         },
-        body: Container(
-          child: TabBarView(
-            controller: tabController,
-            children: [
-              /// Each content from each tab will have a dynamic height
-              Container(),
-              Container()
-            ],
-          ),
+        body: TabBarView(
+          controller: tabController,
+          children: [
+            /// Each content from each tab will have a dynamic height
+            Container(),
+            Container()
+          ],
         ),
       ),
     );

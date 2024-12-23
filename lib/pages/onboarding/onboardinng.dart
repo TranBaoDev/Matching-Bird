@@ -14,7 +14,7 @@ import 'package:tiki/respositories/mainauth.dart';
 class OnboardingScreen extends StatelessWidget {
   static const String routeName = '/onboarding';
 
-  const OnboardingScreen({Key? key}) : super(key: key);
+  const OnboardingScreen({super.key});
 
   static Route route() {
     return MaterialPageRoute(

@@ -1,21 +1,18 @@
 import 'package:antdesign_icons/antdesign_icons.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tiki/animations/fadeinanimation.dart';
-import 'package:tiki/constatns/colors.dart';
 import 'package:tiki/models/user.dart';
-import 'package:tiki/pages/homepage.dart';
 import 'package:tiki/respositories/bloc/swipebloc_bloc.dart';
 import 'package:tiki/widgets/choicebtn.dart';
 import 'package:tiki/widgets/image_container.dart';
 
 class ProfileScreen extends StatefulWidget {
   final User user;
-  const ProfileScreen({Key? key, required this.user}) : super(key: key);
+  const ProfileScreen({super.key, required this.user});
 
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
@@ -41,12 +38,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   void getCurrentUserLocation() {
-    Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
+    final locationSettings = LocationSettings(
+      accuracy: LocationAccuracy.best,
+      distanceFilter:
+          10, // specify the minimum distance (in meters) before another location update is triggered
+    );
+
+    Geolocator.getCurrentPosition(locationSettings: locationSettings)
         .then((position) {
       setState(() {
         lat = position.latitude;
         long = position.longitude;
       });
+      getMilesAway(); // Update the distance after location is fetched
     });
   }
 

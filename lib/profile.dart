@@ -1,18 +1,16 @@
 import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart' show toBeginningOfSentenceCase;
 import 'package:provider/provider.dart';
 import 'package:tiki/custompaints/circular_progress.dart';
-import 'package:tiki/models/user.dart';
 import 'package:tiki/providers/userdata.dart';
 
 class DrawerWidget extends StatefulWidget {
-  const DrawerWidget({Key? key}) : super(key: key);
+  const DrawerWidget({super.key});
 
   @override
   _DrawerWidgetState createState() => _DrawerWidgetState();

@@ -6,12 +6,11 @@ class DislikedWidget extends StatefulWidget {
   final Duration duration;
   final VoidCallback? onEnd;
   const DislikedWidget(
-      {Key? key,
+      {super.key,
       required this.child,
       required this.isAnimation,
       required this.onEnd,
-      this.duration = const Duration(milliseconds: 150)})
-      : super(key: key);
+      this.duration = const Duration(milliseconds: 150)});
 
   @override
   _DislikedWidgetState createState() => _DislikedWidgetState();

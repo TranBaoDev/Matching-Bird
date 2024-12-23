@@ -1,8 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tiki/animations/liked.dart';
@@ -11,11 +9,10 @@ import 'package:tiki/models/user.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:tiki/respositories/bloc/swipebloc_bloc.dart';
 import 'package:tiki/widgets/choicebtn.dart';
-import 'package:tiki/widgets/custom_text_container.dart';
 
 class UserCard extends StatefulWidget {
   final User user;
-  const UserCard({Key? key, required this.user}) : super(key: key);
+  const UserCard({super.key, required this.user});
 
   @override
   State<UserCard> createState() => _UserCardState();
@@ -362,10 +359,10 @@ class UserImagesSmall extends StatelessWidget {
   final User user;
   final int index;
   const UserImagesSmall({
-    Key? key,
+    super.key,
     required this.user,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

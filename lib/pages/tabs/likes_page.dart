@@ -3,13 +3,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:shimmer/shimmer.dart';
-import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:tiki/providers/userdata.dart';
 import 'package:tiki/widgets/likes.dart';
 
 class ListPage extends StatefulWidget {
-  const ListPage({Key? key}) : super(key: key);
+  const ListPage({super.key});
 
   @override
   _ListPageState createState() => _ListPageState();
@@ -21,6 +19,7 @@ class _ListPageState extends State<ListPage>
   TabController? tabController;
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     var userData = Provider.of<UserData>(context);
     //   var currentTab = DefaultTabController.of(context)?.index;
     return DefaultTabController(
@@ -208,7 +207,7 @@ class _ListPageState extends State<ListPage>
                       ),
                       child: Center(
                         child: Text(
-                            DefaultTabController.of(context)!.index == 0
+                            DefaultTabController.of(context).index == 0
                                 ? 'See full list'.toUpperCase()
                                 : 'See who picked you'.toUpperCase(),
                             style: GoogleFonts.aBeeZee(
@@ -235,8 +234,8 @@ class _ListPageState extends State<ListPage>
 
 class PremiumDialog extends StatelessWidget {
   const PremiumDialog({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
