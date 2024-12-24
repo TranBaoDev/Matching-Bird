@@ -13,6 +13,7 @@ import 'package:tiki/profile.dart';
 import 'package:tiki/providers/userdata.dart';
 
 class MainPage extends StatefulWidget {
+  static const String routeName = "/mainPage";
   const MainPage({super.key});
 
   @override
@@ -24,7 +25,7 @@ class _MainPageState extends State<MainPage> {
   final PageController _pageController = PageController();
   @override
   Widget build(BuildContext context) {
-    var userData = Provider.of<UserData>(context);
+    var userData = context.watch<UserData>(); 
     List page = [
       HomePage(),
       Container(),
@@ -38,40 +39,20 @@ class _MainPageState extends State<MainPage> {
           child: GestureDetector(
             onTap: () {
               Navigator.push(
-                  context,
-                  CupertinoPageRoute(
-                      builder: (context) => const DrawerWidget()));
+                context,
+                CupertinoPageRoute(builder: (context) => const DrawerWidget()),
+              );
             },
-            child: FutureBuilder(
-                future: userData.getData(),
-                builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Shimmer.fromColors(
-                      baseColor: Colors.grey,
-                      highlightColor: Colors.white,
-                      child: Container(
-                          height: 40,
-                          width: 40,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.white,
-                          )),
-                    );
-                  }
-                  //  saveUser(snapshot.data!['imageUrl'][1]);
-                  return Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: CachedNetworkImageProvider(
-                              snapshot.data!['imageUrl'][1] ?? ''),
-                        ),
-                      ));
-                }),
+            child: userData.username == null
+              ? Shimmer.fromColors(
+                  baseColor: Colors.grey,
+                  highlightColor: Colors.white,
+                  child: CircleAvatar(radius: 20),
+                ) // Show a shimmer loading animation if data is not loaded yet
+              : CircleAvatar(
+                  radius: 20,
+                  backgroundImage: NetworkImage(userData.imageUrl ?? ''),
+                ),
           ),
         ),
         actions: [

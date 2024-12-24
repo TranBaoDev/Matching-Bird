@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tiki/respositories/storage_repository.dart';
 
+import '../authentications_bloc/cubits/signup_cubit.dart';
 
 class CustomImageContainer extends StatefulWidget {
   final String? imageUrl;
   const CustomImageContainer({
-    super.key,
+    Key? key,
     this.imageUrl,
-  });
+  }) : super(key: key);
 
   @override
   State<CustomImageContainer> createState() => _CustomImageContainerState();
@@ -59,9 +60,9 @@ class _CustomImageContainerState extends State<CustomImageContainer> {
                   color: Theme.of(context).colorScheme.secondary,
                 ),
                 onPressed: () async {
-                  ImagePicker picker = ImagePicker();
+                  ImagePicker _picker = ImagePicker();
                   final XFile? image =
-                      await picker.pickImage(source: ImageSource.gallery);
+                      await _picker.pickImage(source: ImageSource.gallery);
                   setState(() {
                     file = image;
                   });

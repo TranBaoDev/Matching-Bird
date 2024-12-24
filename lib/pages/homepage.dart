@@ -16,6 +16,7 @@ import 'package:tiki/widgets/usercard.dart';
 import '../models/user.dart';
 
 class HomePage extends StatefulWidget {
+  static String routeName = "/homepage";
   const HomePage({super.key});
 
   @override
@@ -135,18 +136,19 @@ class _HomePageState extends State<HomePage>
                                     ProfileScreen(user: state.users[0])));
                       },
                       child: FutureBuilder(
-                          future: userData.getData(),
-                          builder: (context,
-                              AsyncSnapshot<DocumentSnapshot> snapshot) {
-                            if (snapshot.connectionState ==
-                                ConnectionState.waiting) {
-                              return Center(
-                                child: CircularProgressIndicator(),
-                              );
-                            }
+                        future: userData.getData(),
+                        builder: (context,
+                            AsyncSnapshot<DocumentSnapshot> snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
 
-                            return Draggable<User>(
+                          return Draggable<User>(
                               data: state.users[0],
+                              child: UserCard(user: state.users[0]),
                               feedback: UserCard(user: state.users[0]),
                               childWhenDragging: UserCard(user: state.users[1]),
                               onDragEnd: (drag) {
@@ -185,9 +187,9 @@ class _HomePageState extends State<HomePage>
                                   print('Swiped Right');
                                 }
                               },
-                              child: UserCard(user: state.users[0]),
-                            );
-                          }),
+                            ); // Return an empty widget if users list is empty
+                        },
+                      ),
                     ),
                     const SizedBox(
                       height: 10,

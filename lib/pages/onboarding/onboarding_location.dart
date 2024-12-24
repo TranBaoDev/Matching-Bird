@@ -58,7 +58,12 @@ class Location extends StatelessWidget {
                     unselectedColor: Theme.of(context).colorScheme.surface,
                   ),
                   const SizedBox(height: 10),
-                  CustomButton(tabController: tabController, text: 'DONE'),
+                  CustomButton(
+                      tabController: tabController,
+                      function: () {
+                        // Navigator.pushNamed(context, "/mainPage");
+                      },
+                      text: 'DONE'),
                 ],
               ),
             ],

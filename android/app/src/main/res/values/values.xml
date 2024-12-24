@@ -14,4 +14,5 @@
 
     <!-- Cloud Messaging Sender ID: Bắt buộc nếu bạn sử dụng Firebase Cloud Messaging -->
     <string name="gcm_defaultSenderId">79733169452</string>
+    <string name="google_storage_bucket">tinder-clone-705a4.firebasestorage.app</string>
 </resources>

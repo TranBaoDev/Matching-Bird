@@ -50,16 +50,17 @@ class User extends Equatable {
       ];
 
   static User fromSnapshot(DocumentSnapshot snapshot) {
+    final data = snapshot.data() as Map<String, dynamic>? ?? {};
     return User(
-      id: snapshot['id'], // Assuming 'id' field is present
-      name: snapshot['username'],
-      age: snapshot['age'],
-      email: snapshot['email'],
-      interests: snapshot['interest'],
-      imageUrls: snapshot['imageUrl'],
-      bio: snapshot['bio'],
-      location: snapshot['location'],
-      geopoint: snapshot['currentPostion'],
+      id: data['id'], // Assuming 'id' field is present
+      name: data['username'],
+      age: data['age'],
+      email: data['email'],
+      interests: data['interest'],
+      imageUrls: data['imageUrl'],
+      bio: data['bio'],
+      location: data['location'],
+      geopoint: data['currentPostion'],
     );
   }
 

@@ -30,7 +30,7 @@ class _DemoState extends State<Demo> {
     return BlocBuilder<SignupCubit, SignupState>(
       builder: (context, state) {
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,

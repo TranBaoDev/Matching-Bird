@@ -11,6 +11,7 @@ import 'package:tiki/widgets/choicebtn.dart';
 import 'package:tiki/widgets/image_container.dart';
 
 class ProfileScreen extends StatefulWidget {
+  static const String routeName = '/profile';
   final User user;
   const ProfileScreen({super.key, required this.user});
 

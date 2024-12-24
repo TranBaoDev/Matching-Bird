@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:tiki/widgets/custombtn.dart';
 import 'package:tiki/widgets/header.dart';
@@ -17,7 +16,7 @@ class Pictures extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.max,
@@ -44,14 +43,19 @@ class Pictures extends StatelessWidget {
               Row(
                 children: const [
                   CustomImageContainer(),
+                  SizedBox(width: 5,),
                   CustomImageContainer(),
+                  SizedBox(width: 5,),
                   CustomImageContainer(),
                 ],
               ),
+              SizedBox(height: 10,),
               Row(
                 children: const [
                   CustomImageContainer(),
+                  SizedBox(width: 5,),
                   CustomImageContainer(),
+                  SizedBox(width: 5,),
                   CustomImageContainer(),
                 ],
               ),

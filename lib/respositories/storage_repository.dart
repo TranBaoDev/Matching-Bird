@@ -10,6 +10,7 @@ class StorageRepository extends BaseStroageRepository {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final firebase_storage.FirebaseStorage storage =
       firebase_storage.FirebaseStorage.instance;
+      
   @override
   Future<void> uploadImage(XFile image) async {
     try {

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -55,44 +56,62 @@ class _UserCardState extends State<UserCard> {
                         borderRadius: BorderRadius.circular(5.0),
                         boxShadow: [
                           BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              offset: const Offset(0, 3),
-                              spreadRadius: 4,
-                              blurRadius: 10),
+                            color: Colors.grey.withOpacity(0.5),
+                            offset: const Offset(0, 3),
+                            spreadRadius: 4,
+                            blurRadius: 10,
+                          ),
                         ],
-                        image: DecorationImage(
-                            image: NetworkImage(widget.user.imageUrls![1]),
-                            fit: BoxFit.cover),
+                      ),
+                      child: CachedNetworkImage(
+                        imageUrl: widget.user.imageUrls?[1] ?? '',
+                        fit: BoxFit.cover,
+                        placeholder: (context, url) => Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                        errorWidget: (context, url, error) => Container(
+                          color: Colors.grey[200],
+                          child: Center(
+                            child: Icon(
+                              Icons.broken_image,
+                              size: 50,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                     Positioned(
-                        child: Wrap(
-                      direction: Axis.horizontal,
-                      children: List.generate(
-                          widget.user.imageUrls!.length - 1,
+                      child: Wrap(
+                        direction: Axis.horizontal,
+                        children: List.generate(
+                          (widget.user.imageUrls?.length ?? 1) - 1,
                           (index) => Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Container(
-                                  height: 4,
-                                  width: 45,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20.0),
-                                  ),
-                                ),
-                              )),
-                    )),
-                    Container(
-                        decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Color.fromARGB(200, 0, 0, 0),
-                          Color.fromARGB(0, 0, 0, 0),
-                        ],
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              height: 4,
+                              width: 45,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
-                    )),
+                    ),
+                    Container(
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color.fromARGB(200, 0, 0, 0),
+                            Color.fromARGB(0, 0, 0, 0),
+                          ],
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                        ),
+                      ),
+                    ),
                     Positioned(
                       bottom: 10,
                       left: 20,
@@ -104,15 +123,16 @@ class _UserCardState extends State<UserCard> {
                               Text(
                                 widget.user.name ?? '',
                                 style: GoogleFonts.aBeeZee(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
                               ),
                               const SizedBox(width: 10),
                               const Icon(
                                 Icons.info_outline_rounded,
                                 color: Colors.white,
-                              )
+                              ),
                             ],
                           ),
                           Row(
@@ -120,23 +140,22 @@ class _UserCardState extends State<UserCard> {
                               Text(
                                 '${widget.user.age.toString()}, ',
                                 style: GoogleFonts.aBeeZee(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
                               ),
                               Text(
                                 widget.user.location ?? '',
                                 style: GoogleFonts.aBeeZee(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
-                              )
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
                             ],
                           ),
-
-                          const SizedBox(
-                            height: 5,
-                          ),
+                          const SizedBox(height: 5),
                           SizedBox(
                             height: 68,
                             width: MediaQuery.of(context).size.width,
@@ -145,59 +164,30 @@ class _UserCardState extends State<UserCard> {
                               shrinkWrap: true,
                               childAspectRatio: 18 / 6,
                               crossAxisCount: 3,
-                              children: widget.user.interests!.map((interest) {
+                              children:
+                                  (widget.user.interests ?? []).map((interest) {
                                 return Padding(
                                   padding: const EdgeInsets.all(4.0),
                                   child: Container(
-                                      width: 45,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: Colors.white,
-                                      ),
-                                      child: Center(
-                                          child: Text(
+                                    width: 45,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      color: Colors.white,
+                                    ),
+                                    child: Center(
+                                      child: Text(
                                         interest,
                                         style: GoogleFonts.aBeeZee(
                                           fontSize: 12,
                                         ),
-                                      ))),
+                                      ),
+                                    ),
+                                  ),
                                 );
                               }).toList(),
                             ),
                           ),
-
                           const SizedBox(height: 10),
-                          // Row(
-                          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          //   children: [
-                          //     UserImagesSmall(
-                          //       index: 1,
-                          //       user: widget.user,
-                          //     ),
-                          //     const SizedBox(
-                          //       width: 4,
-                          //     ),
-                          //     UserImagesSmall(
-                          //       index: 2,
-                          //       user: widget.user,
-                          //     ),
-                          //     const SizedBox(
-                          //       width: 4,
-                          //     ),
-                          //     UserImagesSmall(
-                          //       index: 3,
-                          //       user: widget.user,
-                          //     ),
-                          //     const SizedBox(
-                          //       width: 4,
-                          //     ),
-                          //     UserImagesSmall(
-                          //       index: 0,
-                          //       user: widget.user,
-                          //     ),
-                          //   ],
-                          // ),
-                          SizedBox(height: 10),
                           Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 7, vertical: 2),
@@ -214,9 +204,7 @@ class _UserCardState extends State<UserCard> {
                                   icon: CupertinoIcons.arrow_clockwise,
                                   size: 25,
                                 ),
-                                const SizedBox(
-                                  width: 15,
-                                ),
+                                const SizedBox(width: 15),
                                 GestureDetector(
                                   onTap: () {
                                     setState(() {
@@ -238,9 +226,7 @@ class _UserCardState extends State<UserCard> {
                                     size: 25,
                                   ),
                                 ),
-                                const SizedBox(
-                                  width: 15,
-                                ),
+                                const SizedBox(width: 15),
                                 const ChoiceButton(
                                   height: 60,
                                   width: 60,
@@ -251,9 +237,7 @@ class _UserCardState extends State<UserCard> {
                                   icon: Icons.star,
                                   size: 25,
                                 ),
-                                const SizedBox(
-                                  width: 15,
-                                ),
+                                const SizedBox(width: 15),
                                 GestureDetector(
                                   onTap: () {
                                     setState(() {
@@ -274,76 +258,14 @@ class _UserCardState extends State<UserCard> {
                                     size: 25,
                                   ),
                                 ),
-                                const SizedBox(
-                                  width: 15,
-                                ),
-                                // const ChoiceButton(
-                                //   height: 60,
-                                //   isSvg: true,
-                                //   path: 'assets/svgs/thunder_icon.svg',
-                                //   width: 60,
-                                //   hasGradient: false,
-                                //   color: AppColors.primary,
-                                //   icon: CupertinoIcons.bolt_fill,
-                                //   size: 25,
-                                // ),
+                                const SizedBox(width: 15),
                               ],
                             ),
-                          )
+                          ),
                         ],
                       ),
-                    )
+                    ),
                   ]),
-                ),
-                Positioned(
-                  left: 50,
-                  right: 50,
-                  top: 50,
-                  bottom: 50,
-                  child: Opacity(
-                    opacity: isAnimating ? 1 : 0,
-                    child: HeartAnimationWidget(
-                      onEnd: () {
-                        setState(() {
-                          isAnimating = false;
-                        });
-                      },
-                      duration: const Duration(milliseconds: 700),
-                      isAnimation: isAnimating,
-                      child: Container(
-                        height: 20,
-                        width: 20,
-                        color: Colors.transparent,
-                        child: Lottie.asset(
-                          'assets/animations/love.json',
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 50,
-                  right: 50,
-                  top: 50,
-                  bottom: 50,
-                  child: Opacity(
-                    opacity: isDisliked ? 1 : 0,
-                    child: HeartAnimationWidget(
-                      onEnd: () {
-                        setState(() {
-                          isDisliked = false;
-                        });
-                      },
-                      duration: const Duration(milliseconds: 700),
-                      isAnimation: isDisliked,
-                      child: SvgPicture.asset(
-                        'assets/svgs/close_icon.svg',
-                        height: 55,
-                        width: 55,
-                        fit: BoxFit.scaleDown,
-                      ),
-                    ),
-                  ),
                 ),
               ],
             ),
@@ -367,13 +289,15 @@ class UserImagesSmall extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 70,
-        width: 70,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5.0),
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: NetworkImage(user.imageUrls![index]),
-            )));
+      height: 70,
+      width: 70,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5.0),
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: NetworkImage(user.imageUrls![index]),
+        ),
+      ),
+    );
   }
 }

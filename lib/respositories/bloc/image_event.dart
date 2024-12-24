@@ -10,10 +10,19 @@ abstract class ImageEvent extends Equatable {
 class LoadImage extends ImageEvent {}
 
 class UpdateImages extends ImageEvent {
-  final List<dynamic> imageUrls;
+  final List<String> imageUrls;
 
   const UpdateImages({required this.imageUrls});
 
   @override
   List<Object> get props => [imageUrls];
+}
+
+class ImagesError extends ImageEvent {
+  final String errorMessage;
+
+  const ImagesError(this.errorMessage);
+
+  @override
+  List<Object> get props => [errorMessage];
 }

@@ -3,7 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tiki/constatns/colors.dart';
 import 'package:tiki/instances/login_status.dart';
+import 'package:tiki/pages/homepage.dart';
 import 'package:tiki/pages/tabs/mainpage.dart';
 import 'package:tiki/respositories/mainauth.dart';
 
@@ -57,9 +59,9 @@ class _SigninPageState extends State<SigninPage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 11,
-                ),
+                // SizedBox(
+                //   height: MediaQuery.of(context).size.height / 20,
+                // ),
 
                 // SizedBox(
                 //   height: 200,
@@ -88,7 +90,7 @@ class _SigninPageState extends State<SigninPage> {
                       ]),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.1,
+                  height: MediaQuery.of(context).size.height * 0.075,
                 ),
                 Form(
                   key: formKey,
@@ -171,7 +173,7 @@ class _SigninPageState extends State<SigninPage> {
                 ),
               ),
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   if (formKey.currentState!.validate()) {
                     try {
                       FirebaseAuth.instance
@@ -244,6 +246,7 @@ class _SigninPageState extends State<SigninPage> {
                         style: GoogleFonts.aBeeZee(
                           fontSize: 15,
                           fontWeight: FontWeight.w600,
+                          color: AppColors.primary
                         )),
                   ),
                 ),

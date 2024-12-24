@@ -10,9 +10,19 @@ abstract class ImageState extends Equatable {
 class ImagesLoading extends ImageState {}
 
 class ImagesLoaded extends ImageState {
-  final List<dynamic> imageUrls;
+  final List<String> imageUrls;
+
   const ImagesLoaded({this.imageUrls = const []});
 
   @override
   List<Object> get props => [imageUrls];
+}
+
+class ImagesErrorState extends ImageState {
+  final String errorMessage;
+
+  const ImagesErrorState({required this.errorMessage});
+
+  @override
+  List<Object> get props => [errorMessage];
 }

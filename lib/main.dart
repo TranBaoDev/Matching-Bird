@@ -23,20 +23,12 @@ void main() async {
 
   // Initialize Firebase
   await Firebase.initializeApp(
-    // options: FirebaseOptions(
-    //   apiKey: "AIzaSyBeBPCoGMU8NLigK5uVscj8AkPxK7WVrx0",
-    //   authDomain: "tinder-clone-705a4.firebaseapp.com",
-    //   projectId: "tinder-clone-705a4",
-    //   storageBucket: "tinder-clone-705a4.firebasestorage.app",
-    //   messagingSenderId: "79733169452",
-    //   appId: "1:79733169452:web:0fdc6e145a53d63098a089",
-    //   measurementId: "G-T9CGREL91D",
-    // ),
+
   );
 
   runApp(MultiProvider(
     providers: [
-      Provider<UserData>(create: (_) => UserData()),
+      ChangeNotifierProvider<UserData>(create: (_) => UserData()),
     ],
     child: const MyApp(),
   ));
